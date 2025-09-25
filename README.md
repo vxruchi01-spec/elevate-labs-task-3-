@@ -21,64 +21,45 @@ Perform a basic vulnerability scan on my personal computer using a free vulnerab
 
 ---
 
-## Summary of Findings
+## My Basic Network Scan – Nessus Report
 
-| Metric                    | Value                     |
-|----------------------------|---------------------------|
-| Scan Name                 | Local Vulnerability Scan  |
-| Plugin Feed Version       | 202505290308              |
-| Scan Duration             | 18 minutes                |
-| Hosts Scanned             | 3 (Local and LAN)         |
-| Critical Vulnerabilities  | 1                         |
-| High Vulnerabilities      | 4                         |
-| Medium Vulnerabilities    | 2                         |
-| Info / Low                | 74+                       |
+**Scan Date:** Thursday, September 25, 2025  
+**Scanner:** Tenable Nessus™  
+**Target Host:** 192.168.0.2  
 
 ---
 
-## Critical & High Vulnerabilities
+## 📊 Scan Summary
 
-### 1. Node.js Multiple Vulnerabilities (CVE-2024-21892, CVE-2024-22019, etc.)
-- **Severity:** Critical  
-- **Affected Package:** Node.js v20.11.0  
-- **Description:** Multiple high-risk vulnerabilities impacting HTTP processing, path traversal, DoS, and crypto timing attacks.  
-- **Recommendation:** Upgrade to Node.js version `20.11.1` or higher.
-
-### 2. Tornado Python Library DoS (CVE-2025-47287)
-- **Severity:** High  
-- **Issue:** Denial-of-service vulnerability in Tornado versions < 6.5.0.  
-- **Recommendation:** Upgrade to Tornado version `6.5.0`.
-
-### 3. SSL Certificate Cannot Be Trusted
-- **Severity:** Medium  
-- **Issue:** Self-signed SSL certificate used by Nessus web interface.  
-- **Recommendation:** Use a certificate issued by a trusted CA if exposed publicly.
+| Metric                     | Value                   |
+|----------------------------|------------------------|
+| Total Vulnerabilities      | 86                     |
+| Critical                  | 0                      |
+| High                      | 0                      |
+| Medium                    | 5                      |
+| Low                       | 0                      |
+| Informational / Info      | 81                     |
 
 ---
 
-## Lessons Learned
-- Practiced identifying and prioritizing vulnerabilities using CVSS scores.  
-- Observed how outdated software packages (Node.js, Tornado) can pose significant security risks.  
-- Learned basic remediation techniques, such as updating software and using trusted certificates.
+## ⚠️ Medium Vulnerabilities
+
+| Vulnerability                                      | CVSS v3.0 Score | Recommendation / Notes                 |
+|--------------------------------------------------|----------------|---------------------------------------|
+| Remote Desktop Protocol Server MitM Weakness     | 6.5            | Ensure RDP is secured and patched.    |
+| SSL Certificate Cannot Be Trusted                | 6.5            | Replace with a trusted CA certificate |
+| SSL Self-Signed Certificate                       | 6.5            | Replace with a trusted CA certificate |
+| SSL Anonymous Cipher Suites Supported            | 5.9            | Disable anonymous ciphers             |
+| nginx < 1.17.7 Information Disclosure           | 5.3            | Upgrade nginx to ≥ 1.17.7             |
 
 ---
 
-## 🖼️ Screenshots Included
-- Scan summary dashboard  
-- Vulnerabilities listed by severity  
-- Detailed CVE information (Node.js, Tornado, SSL)  
-- Host details (IP, MAC, OS)  
+## ℹ️ Informational Findings
+The majority of findings were informational (81) and include details about:
 
----
+- Installed software: Apache Cassandra, Apache Log4j, ClamAV, Docker  
+- Detected services: Remote Desktop Protocol, Docker Se
 
-## Key Concepts Covered
-- Vulnerability scanning fundamentals  
-- Using Nessus Essentials effectively  
-- Interpreting CVSS scores  
-- Identifying critical system vulnerabilities  
-- Planning and implementing basic remediation steps  
-
----
 
 ##  How to Run This Scan Yourself
 ```bash
